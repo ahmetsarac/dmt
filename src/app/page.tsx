@@ -3,9 +3,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import HeroSection from '../components/HeroSection';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Home() {
     const [currentGame, setCurrentGame] = useState(0);
+
+    // Scroll animation hooks for different elements
+    const titleAnimation = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.3 });
+    const descriptionAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
+    const gamesHeadingAnimation = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.3 });
+    const gameCardAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
     const game = {
         title: 'PEAK',
@@ -29,12 +36,20 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-6" data-oid="desc-container">
                     <div className="flex gap-12 items-center" data-oid="company-grid">
                     <div className="flex-1 text-center" data-oid="company-title-section">
-                            <h2 className="text-6xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent" data-oid="company-title">
+                            <h2 
+                                ref={titleAnimation.ref}
+                                className={`text-6xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent animate-fade-in-left ${titleAnimation.isVisible ? 'visible' : ''}`} 
+                                data-oid="company-title"
+                            >
                                 A game studio <br /> that dares to <br /> incredible things.
                             </h2>
                         </div>
                         <div className=" text-right" data-oid="company-text">
-                            <div className="text-2xl  leading-tight text-gray-800" data-oid="company-desc-lines">
+                            <div 
+                                ref={descriptionAnimation.ref}
+                                className={`text-2xl leading-tight text-gray-800 animate-fade-in-right delay-300 ${descriptionAnimation.isVisible ? 'visible' : ''}`} 
+                                data-oid="company-desc-lines"
+                            >
                                 <div className="mb-2">We put our soul into fun, dream-chasing games.</div>
                                 
                             </div>
@@ -44,15 +59,22 @@ export default function Home() {
                 </div>
             </section>
 
-                         {/* Our Games */}
-             <section className="py-16 bg-gray-100" data-oid="games">
+            {/* Our Games */}
+            <section className="py-16 bg-gray-100" data-oid="games">
                  <div className="max-w-7xl mx-auto px-6" data-oid="games-container">
-                     <h2 className="text-4xl font-bold text-center mb-16 text-gray-800" data-oid="games-title">
+                     <h2 
+                         ref={gamesHeadingAnimation.ref}
+                         className={`text-4xl font-bold text-center mb-16 text-gray-800 animate-fade-in-up ${gamesHeadingAnimation.isVisible ? 'visible' : ''}`} 
+                         data-oid="games-title"
+                     >
                          Check out our games ↓
                      </h2>
                      <div className="flex justify-center">
                          {/* Game Card */}
-                         <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-6xl w-full">
+                         <div 
+                             ref={gameCardAnimation.ref}
+                             className={`bg-white rounded-lg shadow-lg overflow-hidden max-w-6xl w-full animate-scale-in delay-200 ${gameCardAnimation.isVisible ? 'visible' : ''}`}
+                         >
                              <div className="grid md:grid-cols-2 gap-0">
                                  {/* Video Section */}
                                  <div className="relative aspect-video bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
@@ -79,8 +101,7 @@ export default function Home() {
                          </div>
                      </div>
                  </div>
-             </section>
-
+            </section>
         </div>
     );
 }
