@@ -1,13 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Hero section'ın yüksekliği yaklaşık viewport height kadar
+            // Scroll pozisyonu viewport height'ın %80'ini geçince rengi değiştir
+            const heroHeight = window.innerHeight * 0.8;
+            setIsScrolledPastHero(window.scrollY > heroHeight);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Hero section üzerindeyken beyaz, geçince default (gri) renk
+    const textColorClass = isScrolledPastHero ? 'text-gray-700' : 'text-white';
+    const hoverColorClass = isScrolledPastHero ? 'hover:text-black' : 'hover:text-gray-200';
+    const logoTextClass = isScrolledPastHero ? '' : 'text-white';
+    const mobileButtonClass = isScrolledPastHero ? 'bg-gray-700' : 'bg-white';
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md" data-oid="ej8ixqr">
+        <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all duration-300" data-oid="ej8ixqr">
             <div
                 className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
                 data-oid="mgc5of3"
@@ -21,7 +40,7 @@ export default function Navigation() {
                             🎮
                         </span>
                     </div>
-                    <span className="font-bold text-lg" data-oid=".b3syr5">
+                    <span className={`font-bold text-lg transition-colors duration-300 ${logoTextClass}`} data-oid=".b3syr5">
                         DMT GAMES
                     </span>
                 </Link>
@@ -29,49 +48,49 @@ export default function Navigation() {
                 <div className="hidden md:flex items-center space-x-8" data-oid="1lsofo5">
                     <Link
                         href="/games"
-                        className="text-gray-700 hover:text-black font-medium"
+                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
                         data-oid="nsoxuhz"
                     >
                         GAMES
                     </Link>
                     <Link
                         href="/about"
-                        className="text-gray-700 hover:text-black font-medium"
+                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
                         data-oid="z1f7:i8"
                     >
                         ABOUT
                     </Link>
                     <Link
                         href="/jobs"
-                        className="text-gray-700 hover:text-black font-medium"
+                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
                         data-oid="zs9yr4t"
                     >
                         JOBS
                     </Link>
                     <Link
                         href="/news"
-                        className="text-gray-700 hover:text-black font-medium"
+                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
                         data-oid="oks-6c:"
                     >
                         NEWS
                     </Link>
                     <Link
                         href="/press"
-                        className="text-gray-700 hover:text-black font-medium"
+                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
                         data-oid="-bjzdhi"
                     >
                         PRESS
                     </Link>
 
                     {/* Divider */}
-                    <div className="w-px h-6 bg-gray-300"></div>
+                    <div className={`w-px h-6 transition-colors duration-300 ${isScrolledPastHero ? 'bg-gray-300' : 'bg-white/30'}`}></div>
 
                     {/* Social Media Icons */}
                     <div className="flex items-center space-x-3" data-oid="_h0lnhc">
                         {/* Instagram */}
                         <a
                             href="#"
-                            className="text-black hover:text-pink-600 transition-colors"
+                            className={`${isScrolledPastHero ? 'text-black hover:text-pink-600' : 'text-white hover:text-pink-400'} transition-colors duration-300`}
                             aria-label="Instagram"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -82,7 +101,7 @@ export default function Navigation() {
                         {/* Twitter/X */}
                         <a
                             href="#"
-                            className="text-black hover:text-gray-900 transition-colors"
+                            className={`${isScrolledPastHero ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-300'} transition-colors duration-300`}
                             aria-label="Twitter"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -93,7 +112,7 @@ export default function Navigation() {
                         {/* Discord */}
                         <a
                             href="#"
-                            className="text-black hover:text-indigo-600 transition-colors"
+                            className={`${isScrolledPastHero ? 'text-black hover:text-indigo-600' : 'text-white hover:text-indigo-400'} transition-colors duration-300`}
                             aria-label="Discord"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -104,7 +123,7 @@ export default function Navigation() {
                         {/* Reddit */}
                         <a
                             href="#"
-                            className="text-black hover:text-orange-600 transition-colors"
+                            className={`${isScrolledPastHero ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-400'} transition-colors duration-300`}
                             aria-label="Reddit"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -115,7 +134,7 @@ export default function Navigation() {
                         {/* TikTok */}
                         <a
                             href="#"
-                            className="text-black hover:text-black transition-colors"
+                            className={`${isScrolledPastHero ? 'text-black hover:text-black' : 'text-white hover:text-gray-300'} transition-colors duration-300`}
                             aria-label="TikTok"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -133,15 +152,15 @@ export default function Navigation() {
                     data-oid="8gt_w48"
                 >
                     <span
-                        className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
+                        className={`w-6 h-0.5 ${mobileButtonClass} transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
                         data-oid="gczr.9u"
                     ></span>
                     <span
-                        className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}
+                        className={`w-6 h-0.5 ${mobileButtonClass} transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}
                         data-oid="gjjqpx7"
                     ></span>
                     <span
-                        className={`w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+                        className={`w-6 h-0.5 ${mobileButtonClass} transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
                         data-oid="_znnfdu"
                     ></span>
                 </button>

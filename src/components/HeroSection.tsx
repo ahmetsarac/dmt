@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import ParallaxBackground from './ParallaxBackground';
 import CompoundImageLayout from './CompoundImageLayout';
+import WishlistButton from './WishlistButton';
 
 interface HeroSectionProps {
   backgroundImage?: string;
@@ -44,6 +45,9 @@ export default function HeroSection({
           mainImage={mainImage}
         />
       </div>
+
+      {/* Wishlist Button with Clip Path - Positioned over hero section */}
+      <WishlistButton />
     </section>
   );
 }
