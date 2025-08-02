@@ -18,10 +18,6 @@ const menuLinks = [
         href: '/jobs'
     },
     {
-        label: 'NEWS',
-        href: '/news'
-    },
-    {
         label: 'PRESS',
         href: '/press'
     },

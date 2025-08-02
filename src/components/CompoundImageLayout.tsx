@@ -21,14 +21,16 @@ export default function CompoundImageLayout({
       <div
         className="
           absolute
-          top-20 left-4  
-          sm:top-6 sm:left-8
-          md:top-8 md:left-12
-          lg:top-12 lg:left-16
+          top-32 left-2 
+          sm:top-36 sm:left-24
+          md:top-12 md:left-12
+          lg:top-12 lg:left-12
+          xl:top-12 xl:left-4
           w-full h-full
-          sm:w-28 sm:h-28
-          md:w-40 md:h-40
-          lg:w-4/6 lg:h-4/6
+          sm:w-4/6 sm:h-4/6
+          md:w-4/6 md:h-4/6
+          lg:w-4/7 lg:h-4/7
+          xl:w-4/6 xl:h-4/6
         "
       >
         <Image
