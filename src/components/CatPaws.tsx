@@ -33,7 +33,7 @@ export default function CatPaws() {
   ];
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-0" style={{ top: '100vh', height: 'calc(200vh)' }}>
+    <div className="absolute inset-0 pointer-events-none z-0" style={{ top: '100vh', height: '100vh' }}>
       {pawConfigs.map((paw) => (
         <CatPaw key={paw.id} config={paw} />
       ))}
