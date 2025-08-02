@@ -24,83 +24,63 @@ export default function Home() {
                 gradientColor={game.color}
             />
 
-            {/* Featured Games */}
-            <section className="py-20 bg-white" data-oid="bete6no">
-                <div className="max-w-7xl mx-auto px-6" data-oid="otd9zko">
-                    <h2 className="text-4xl font-bold text-center mb-16" data-oid="js_4sg_">
-                        OUR GAMES
-                    </h2>
-                    <div className="grid md:grid-cols-3 gap-8" data-oid=":3lrp0o">
-                        {
-                            <div key={'A'} className="group cursor-pointer" data-oid="vyrqwot">
-                                <div
-                                    className={`h-64 bg-gradient-to-br ${game.color} rounded-lg mb-4 flex items-center justify-center transform group-hover:scale-105 transition-transform`}
-                                    data-oid="sauv7.."
-                                >
-                                    <span className="text-6xl" data-oid="cteeh2l">
-                                        {'🏔️'}
-                                    </span>
-                                </div>
-                                <h3 className="text-xl font-bold mb-2" data-oid="8.zdwy_">
-                                    {game.title}
-                                </h3>
-                                <p className="text-gray-600" data-oid="lfuro7d">
-                                    {game.description}
-                                </p>
+            {/* Company Description */}
+            <section className="py-16 bg-gray-50" data-oid="company-desc">
+                <div className="max-w-7xl mx-auto px-6" data-oid="desc-container">
+                    <div className="flex gap-12 items-center" data-oid="company-grid">
+                    <div className="flex-1 text-center" data-oid="company-title-section">
+                            <h2 className="text-6xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent" data-oid="company-title">
+                                A game studio <br /> that dares to <br /> incredible things.
+                            </h2>
+                        </div>
+                        <div className=" text-right" data-oid="company-text">
+                            <div className="text-2xl  leading-tight text-gray-800" data-oid="company-desc-lines">
+                                <div className="mb-2">We put our soul into fun, dream-chasing games.</div>
+                                
                             </div>
-                        }
+                        </div>
+                        
                     </div>
                 </div>
             </section>
 
-            {/* About Section */}
-            <section className="py-20 bg-gray-50" data-oid="26s7cso">
-                <div className="max-w-7xl mx-auto px-6" data-oid="5bi0lw_">
-                    <div className="grid md:grid-cols-2 gap-12 items-center" data-oid="1a.98:p">
-                        <div data-oid="e1xtq0o">
-                            <h2 className="text-4xl font-bold mb-6" data-oid="ddfv99a">
-                                WE CREATE WORLDS
-                            </h2>
-                            <p className="text-lg text-gray-700 mb-6" data-oid="lnskzqm">
-                                At Game Studio, we believe in the power of interactive storytelling.
-                                Our team of passionate developers, artists, and designers work
-                                together to create immersive experiences that transport players to
-                                new worlds.
-                            </p>
-                            <p className="text-lg text-gray-700 mb-8" data-oid="2c:mydu">
-                                From epic adventures to quirky indie games, we're committed to
-                                pushing the boundaries of what's possible in gaming.
-                            </p>
-                            <Link
-                                href="/about"
-                                className="inline-block px-8 py-3 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-colors"
-                                data-oid="kd23sc5"
-                            >
-                                LEARN MORE
-                            </Link>
-                        </div>
-                        <div className="relative" data-oid="pmcvee.">
-                            <div
-                                className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg p-8 text-center"
-                                data-oid="mnk4.ki"
-                            >
-                                <div className="text-6xl mb-4" data-oid="plkh0id">
-                                    🎨
-                                </div>
-                                <h3
-                                    className="text-2xl font-bold text-white mb-2"
-                                    data-oid="3f-kcl4"
-                                >
-                                    Creative Excellence
-                                </h3>
-                                <p className="text-white/90" data-oid="::u468t">
-                                    Award-winning games loved by millions
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                         {/* Our Games */}
+             <section className="py-16 bg-gray-100" data-oid="games">
+                 <div className="max-w-7xl mx-auto px-6" data-oid="games-container">
+                     <h2 className="text-4xl font-bold text-center mb-16 text-gray-800" data-oid="games-title">
+                         Check out our games ↓
+                     </h2>
+                     <div className="flex justify-center">
+                         {/* Game Card */}
+                         <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-6xl w-full">
+                             <div className="grid md:grid-cols-2 gap-0">
+                                 {/* Video Section */}
+                                 <div className="relative aspect-video bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                                     <div className="absolute inset-0 bg-black/20"></div>
+                                     <div className="relative z-10 text-white flex justify-center items-center">
+                                         <img src="/assets/meowstery_wisp_logo.png" alt="Meowstery Wisp" width={500} height={500} className="w-2/3 h-2/3 object-cover" />
+                                     </div>
+                                    
+                                 </div>
+                                 
+                                 {/* Game Info Section */}
+                                 <div className="p-8 flex flex-col justify-center">
+                                     <h1 className="text-5xl font-black mb-6 text-gray-900">Meowstery Wisp</h1>
+                                     <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                                     Meowstery Wisp is a 2D multiplayer social deduction game set in a whimsical Victorian-era manor where cats interact, explore, and deduce to solve a mysterious rite.
+                                     </p>
+                                     <div className="flex justify-end">
+                                         <button className="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors self-end">
+                                             Buy Now
+                                         </button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>
+
         </div>
     );
 }
