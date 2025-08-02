@@ -22,7 +22,7 @@ export default function Navigation() {
                         </span>
                     </div>
                     <span className="font-bold text-lg" data-oid=".b3syr5">
-                        GAME STUDIO
+                        DMT GAMES
                     </span>
                 </Link>
                 {/* Desktop Menu and Social Links - Right Aligned */}
