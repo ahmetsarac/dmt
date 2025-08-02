@@ -62,5 +62,24 @@ body {
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+.delay-900 { transition-delay: 900ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
+/* Cat Paw Scroll Animations - No sliding, only fade with shadow changes */
+.animate-paw-static {
+  @apply opacity-0 transition-all duration-1000 ease-out;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.animate-paw-static.visible {
+  @apply opacity-70 transition-all duration-1000 ease-out;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* Paws are now background elements - no interactions */
 
 
