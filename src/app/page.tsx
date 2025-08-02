@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import HeroSection from '../components/HeroSection';
+import CatPaws from '../components/CatPaws';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100" data-oid="e6f-q31">
+        <div className="relative min-h-screen bg-gray-100" data-oid="e6f-q31">
             {/* Hero Section with Parallax */}
             <HeroSection
                 backgroundImage="/assets/bg.JPG"
@@ -58,6 +59,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Cat Paws - Random positioned and animated after company description */}
+            <CatPaws />
 
             {/* Our Games */}
             <section className="py-16 bg-gray-100" data-oid="games">
