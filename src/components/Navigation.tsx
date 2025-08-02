@@ -2,6 +2,30 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+const menuLinks = [
+    {
+        label: 'GAMES',
+        href: '/games'
+    },
+    {
+        label: 'ABOUT',
+        href: '/about'
+    },
+    {
+        label: 'JOBS',
+        href: '/jobs'
+    },
+    {
+        label: 'NEWS',
+        href: '/news'
+    },
+    {
+        label: 'PRESS',
+        href: '/press'
+    },
+]
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,65 +46,45 @@ export default function Navigation() {
     // Hero section üzerindeyken beyaz, geçince default (gri) renk
     const textColorClass = isScrolledPastHero ? 'text-gray-700' : 'text-white';
     const hoverColorClass = isScrolledPastHero ? 'hover:text-black' : 'hover:text-gray-200';
-    const logoTextClass = isScrolledPastHero ? '' : 'text-white';
     const mobileButtonClass = isScrolledPastHero ? 'bg-gray-700' : 'bg-white';
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all duration-300" data-oid="ej8ixqr">
+        <nav 
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolledPastHero ? 'bg-white/95 backdrop-blur-sm' : ''}`}
+            style={{
+                background: 'linear-gradient(180deg, rgba(244, 244, 244, 0.3) 6%, rgba(244, 244, 244, 0) 100%)',
+                
+            }}
+            data-oid="ej8ixqr"
+        >
             <div
-                className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+                className="max-w-7xl mx-auto px-6 flex justify-between items-center"
                 data-oid="mgc5of3"
             >
-                <Link href="/" className="flex items-center space-x-2" data-oid="s9d32e_">
-                    <div
-                        className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center"
-                        data-oid="85oakn4"
-                    >
-                        <span className="text-white font-bold text-sm" data-oid="0if2rva">
-                            🎮
-                        </span>
-                    </div>
-                    <span className={`font-bold text-lg transition-colors duration-300 ${logoTextClass}`} data-oid=".b3syr5">
-                        DMT GAMES
-                    </span>
+                <Link href="/" className="w-24 h-24 flex items-center" data-oid="s9d32e_">
+                   
+                        <Image
+                            src={!isScrolledPastHero ? "/assets/logo_siyaharkaplan.png" : "/assets/logo_beyazarkaplan.png"}
+                            alt="DMT Games Logo"
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-contain"
+                            priority
+                        />
                 </Link>
                 {/* Desktop Menu and Social Links - Right Aligned */}
                 <div className="hidden md:flex items-center space-x-8" data-oid="1lsofo5">
-                    <Link
-                        href="/games"
-                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
-                        data-oid="nsoxuhz"
-                    >
-                        GAMES
-                    </Link>
-                    <Link
-                        href="/about"
-                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
-                        data-oid="z1f7:i8"
-                    >
-                        ABOUT
-                    </Link>
-                    <Link
-                        href="/jobs"
-                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
-                        data-oid="zs9yr4t"
-                    >
-                        JOBS
-                    </Link>
-                    <Link
-                        href="/news"
-                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
-                        data-oid="oks-6c:"
-                    >
-                        NEWS
-                    </Link>
-                    <Link
-                        href="/press"
-                        className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
-                        data-oid="-bjzdhi"
-                    >
-                        PRESS
-                    </Link>
+                    {menuLinks.map((link) => (
+                        <Link
+                            key={link.label}
+                            href={link.href}
+                            className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
+                            data-oid="nsoxuhz"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                   
 
                     {/* Divider */}
                     <div className={`w-px h-6 transition-colors duration-300 ${isScrolledPastHero ? 'bg-gray-300' : 'bg-white/30'}`}></div>
@@ -94,7 +98,7 @@ export default function Navigation() {
                             aria-label="Instagram"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z" />
                             </svg>
                         </a>
 
@@ -172,46 +176,16 @@ export default function Navigation() {
                 data-oid="jcchydn"
             >
                 <div className="px-6 py-4 space-y-4" data-oid="t2q40.k">
-                    <Link
-                        href="/games"
-                        className="block text-gray-700 hover:text-black font-medium py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        data-oid="wy9b47q"
-                    >
-                        GAMES
-                    </Link>
-                    <Link
-                        href="/about"
-                        className="block text-gray-700 hover:text-black font-medium py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        data-oid="kbjorc4"
-                    >
-                        ABOUT
-                    </Link>
-                    <Link
-                        href="/jobs"
-                        className="block text-gray-700 hover:text-black font-medium py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        data-oid="qhs-4bf"
-                    >
-                        JOBS
-                    </Link>
-                    <Link
-                        href="/news"
-                        className="block text-gray-700 hover:text-black font-medium py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        data-oid="ivuj7:o"
-                    >
-                        NEWS
-                    </Link>
-                    <Link
-                        href="/press"
-                        className="block text-gray-700 hover:text-black font-medium py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        data-oid="4dwr4su"
-                    >
-                        PRESS
-                    </Link>
+                    {menuLinks.map((link) => (
+                        <Link
+                            key={link.label}
+                            href={link.href}
+                            className="block text-gray-700 hover:text-black font-medium py-2"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
                     <div
                         className="flex space-x-6 pt-4 border-t border-gray-200"
                         data-oid="d0808mw"
@@ -236,7 +210,7 @@ export default function Navigation() {
                             data-oid="mobile-instagram"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
                             </svg>
                         </a>
 
