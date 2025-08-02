@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const menuLinks = [
     {
@@ -26,18 +27,26 @@ const menuLinks = [
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+    const pathname = usePathname();
+
 
     useEffect(() => {
         const handleScroll = () => {
             // Hero section'ın yüksekliği yaklaşık viewport height kadar
             // Scroll pozisyonu viewport height'ın %80'ini geçince rengi değiştir
-            const heroHeight = window.innerHeight * 0.8;
+            let heroHeight = window.innerHeight * 0.8;
+            if (pathname === '/') {
+                heroHeight = window.innerHeight * 0.8;
+
+            } else {
+                heroHeight = window.innerHeight * 0.2;
+            }
             setIsScrolledPastHero(window.scrollY > heroHeight);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [pathname]);
 
     // Hero section üzerindeyken beyaz, geçince default (gri) renk
     const textColorClass = isScrolledPastHero ? 'text-gray-700' : 'text-white';
