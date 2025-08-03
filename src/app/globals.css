@@ -82,4 +82,22 @@ body {
 
 /* Paws are now background elements - no interactions */
 
+/* Wavy underline animation */
+@keyframes wave {
+  0% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 50 50;
+    stroke-dashoffset: -25;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: -100;
+  }
+}
 
+.animate-wave {
+  animation: wave 0.6s ease-in-out forwards;
+}

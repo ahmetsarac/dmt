@@ -8,13 +8,14 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
                     {/* Left Side - Tagline */}
                     <div className="mb-8 md:mb-0">
-                        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                            DARE
-                            <br />
-                            MIGHTY
-                            <br />
-                            THINGS
+                    <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-br from-black via-purple-800 to-purple-600 text-transparent bg-clip-text">
+                        DARE
+                        <br />
+                        MIGHTY
+                        <br />
+                        THINGS
                         </h2>
+
                     </div>
 
                     {/* Right Side - Contact and Social */}

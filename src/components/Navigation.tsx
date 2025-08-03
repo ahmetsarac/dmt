@@ -49,10 +49,10 @@ export default function Navigation() {
     }, [pathname]);
 
     // About sayfasında Logo_beyazarkaplan.png kullan ve siyah yazılar
-    const isAboutPage = pathname === '/about';
-    const textColorClass = isAboutPage ? 'text-black' : (isScrolledPastHero ? 'text-gray-700' : 'text-white');
-    const hoverColorClass = isAboutPage ? 'hover:text-gray-600' : (isScrolledPastHero ? 'hover:text-black' : 'hover:text-gray-200');
-    const mobileButtonClass = isAboutPage ? 'bg-black' : (isScrolledPastHero ? 'bg-gray-700' : 'bg-white');
+    const isLightPage = pathname === '/about' || pathname === '/jobs' || pathname === '/games';
+    const textColorClass = isLightPage ? 'text-black' : (isScrolledPastHero ? 'text-gray-700' : 'text-white');
+    const hoverColorClass = isLightPage ? 'hover:text-gray-600' : (isScrolledPastHero ? 'hover:text-black' : 'hover:text-gray-200');
+    const mobileButtonClass = isLightPage ? 'bg-black' : (isScrolledPastHero ? 'bg-gray-700' : 'bg-white');
 
     return (
         <nav 
@@ -70,7 +70,7 @@ export default function Navigation() {
                 <Link href="/" className="w-24 h-24 flex items-center" data-oid="s9d32e_">
                    
                         <Image
-                            src={isAboutPage ? "/assets/Logo_beyazarkaplan.png" : (!isScrolledPastHero ? "/assets/logo_siyaharkaplan.png" : "/assets/logo_beyazarkaplan.png")}
+                            src={isLightPage ? "/assets/Logo_beyazarkaplan.png" : (!isScrolledPastHero ? "/assets/logo_siyaharkaplan.png" : "/assets/logo_beyazarkaplan.png")}
                             alt="DMT Games Logo"
                             width={64}
                             height={64}
@@ -84,23 +84,34 @@ export default function Navigation() {
                         <Link
                             key={link.label}
                             href={link.href}
-                            className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300`}
+                            className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300 relative group`}
                             data-oid="nsoxuhz"
                         >
                             {link.label}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full overflow-hidden">
+                                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                    <path 
+                                        d="M0,5 Q25,0 50,5 T100,5" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="2"
+                                        className="animate-wave"
+                                    />
+                                </svg>
+                            </span>
                         </Link>
                     ))}
                    
 
                     {/* Divider */}
-                    <div className={`w-px h-6 transition-colors duration-300 ${isAboutPage ? 'bg-black/30' : (isScrolledPastHero ? 'bg-gray-300' : 'bg-white/30')}`}></div>
+                    <div className={`w-px h-6 transition-colors duration-300 ${isLightPage ? 'bg-black/30' : (isScrolledPastHero ? 'bg-gray-300' : 'bg-white/30')}`}></div>
 
                     {/* Social Media Icons */}
                     <div className="flex items-center space-x-3" data-oid="_h0lnhc">
                         {/* Instagram */}
                         <a
                             href="#"
-                            className={`${isAboutPage ? 'text-black hover:text-pink-600' : (isScrolledPastHero ? 'text-black hover:text-pink-600' : 'text-white hover:text-pink-400')} transition-colors duration-300`}
+                            className={`${isLightPage ? 'text-black hover:text-pink-600' : (isScrolledPastHero ? 'text-black hover:text-pink-600' : 'text-white hover:text-pink-400')} transition-colors duration-300`}
                             aria-label="Instagram"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -111,7 +122,7 @@ export default function Navigation() {
                         {/* Twitter/X */}
                         <a
                             href="#"
-                            className={`${isAboutPage ? 'text-black hover:text-gray-900' : (isScrolledPastHero ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-300')} transition-colors duration-300`}
+                            className={`${isLightPage ? 'text-black hover:text-gray-900' : (isScrolledPastHero ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-300')} transition-colors duration-300`}
                             aria-label="Twitter"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -122,7 +133,7 @@ export default function Navigation() {
                         {/* Discord */}
                         <a
                             href="#"
-                            className={`${isAboutPage ? 'text-black hover:text-indigo-600' : (isScrolledPastHero ? 'text-black hover:text-indigo-600' : 'text-white hover:text-indigo-400')} transition-colors duration-300`}
+                            className={`${isLightPage ? 'text-black hover:text-indigo-600' : (isScrolledPastHero ? 'text-black hover:text-indigo-600' : 'text-white hover:text-indigo-400')} transition-colors duration-300`}
                             aria-label="Discord"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -133,7 +144,7 @@ export default function Navigation() {
                         {/* Reddit */}
                         <a
                             href="#"
-                            className={`${isAboutPage ? 'text-black hover:text-orange-600' : (isScrolledPastHero ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-400')} transition-colors duration-300`}
+                            className={`${isLightPage ? 'text-black hover:text-orange-600' : (isScrolledPastHero ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-400')} transition-colors duration-300`}
                             aria-label="Reddit"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -144,7 +155,7 @@ export default function Navigation() {
                         {/* TikTok */}
                         <a
                             href="#"
-                            className={`${isAboutPage ? 'text-black hover:text-gray-900' : (isScrolledPastHero ? 'text-black hover:text-black' : 'text-white hover:text-gray-300')} transition-colors duration-300`}
+                            className={`${isLightPage ? 'text-black hover:text-gray-900' : (isScrolledPastHero ? 'text-black hover:text-black' : 'text-white hover:text-gray-300')} transition-colors duration-300`}
                             aria-label="TikTok"
                         >
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

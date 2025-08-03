@@ -5,8 +5,7 @@ export default function Games() {
         id: 1,
         title: 'Meowstery Wisp',
         subtitle: 'Epic Mountain Adventure',
-        description:
-            'Climb the highest peaks and discover ancient mysteries hidden in the clouds. Experience breathtaking views and challenging gameplay that will test your limits.',
+        description: 'Meowstery Wisp is a 2D multiplayer social deduction game set in a whimsical Victorian-era manor where cats interact, explore, and deduce to solve a mysterious rite',
         longDescription:
             "Embark on an epic journey through treacherous mountain terrain, solving ancient puzzles and uncovering the secrets of lost civilizations. With stunning visuals, immersive gameplay, and a captivating storyline, PEAK offers an unforgettable adventure that pushes the boundaries of what's possible in gaming.",
         features: [
@@ -35,10 +34,7 @@ export default function Games() {
             {/* Header Section */}
             <section className="pt-24 pb-12 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Games</h1>
-                    <p className="text-xl text-gray-600 text-center max-w-2xl mx-auto">
-                        Discover our latest gaming experiences
-                    </p>
+                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: '#000' }}>Our Games</h1>
                 </div>
             </section>
 
@@ -51,10 +47,11 @@ export default function Games() {
                             {/* Main Image */}
                             <div className="md:col-span-4">
                                 <div className="aspect-video bg-gradient-to-br from-blue-400 to-purple-600 rounded-lg flex items-center justify-center">
-                                    <div className="text-center text-white">
-                                        <span className="text-6xl mb-4 block">{game.emoji}</span>
-                                        <div className="text-sm opacity-75">Main Screenshot</div>
-                                    </div>
+                                    <img
+                                        src="/assets/meowstery_wisp_logo.png"
+                                        alt="Meowstery Wisp Logo"
+                                        className="max-w-full max-h-full object-contain"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -71,22 +68,6 @@ export default function Games() {
 
                             <p className="text-gray-700 mb-6 leading-relaxed">{game.description}</p>
 
-                            {/* Platforms */}
-                            <div className="mb-6">
-                                <h3 className="text-sm font-semibold text-gray-900 mb-2">
-                                    Available on:
-                                </h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {game.platforms.map((platform, index) => (
-                                        <span
-                                            key={index}
-                                            className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                                        >
-                                            {platform}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
 
                             {/* Action Buttons */}
                             <div className="flex flex-col sm:flex-row gap-3">
