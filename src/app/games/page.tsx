@@ -8,14 +8,6 @@ export default function Games() {
         description: 'Meowstery Wisp is a 2D multiplayer social deduction game set in a whimsical Victorian-era manor where cats interact, explore, and deduce to solve a mysterious rite',
         longDescription:
             "Embark on an epic journey through treacherous mountain terrain, solving ancient puzzles and uncovering the secrets of lost civilizations. With stunning visuals, immersive gameplay, and a captivating storyline, PEAK offers an unforgettable adventure that pushes the boundaries of what's possible in gaming.",
-        features: [
-            'Stunning 4K visuals with ray-traced lighting',
-            'Dynamic weather system affecting gameplay',
-            'Ancient puzzle mechanics with modern twists',
-            'Epic boss battles against mythical creatures',
-            'Expansive open world with 50+ hours of content',
-            'Multiplayer co-op for up to 4 players',
-        ],
         color: 'from-blue-400 via-purple-500 to-indigo-600',
         status: 'released',
         platforms: ['PC'],
