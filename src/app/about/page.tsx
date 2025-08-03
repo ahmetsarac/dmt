@@ -6,24 +6,24 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import ScrollAnimatedText from '@/components/ScrollAnimatedText';
 
 const teamMembers = [
-  { name: 'Güven Sarı', title: 'Founder', url: '#' },
-  { name: 'Sinem Tamur', title: 'Lead 2D Artist', url: '#' },
-  { name: 'Batuhan Karakoç', title: 'Game Designer', url: '#' },
-  { name: 'Saadet Özdemir', title: '2D Artist', url: '#' },
-  { name: 'Sinem Güven', title: 'Senior 2D Artist', url: '#' },
-  { name: 'Zeynep Koroğlu', title: '2D Animator', url: '#' },
-  { name: 'İclal Baydur', title: '2D Artist', url: '#' },
-  { name: 'Eda ', title: '2D Animator', url: '#' },
-  { name: 'Yaren Tangaç', title: 'Intern Game Developer', url: '#' },
-  { name: 'Şevval Necla Er', title: 'Intern Game Developer', url: '#' },
-  { name: 'Fehmi Kartal', title: 'Intern 3D Artist', url: '#' },
-  { name: 'Gizem Çayır', title: 'Intern 2D Artist', url: '#' },
-  { name: 'Seda Nur Sayar', title: 'Intern 2D Artist', url: '#' },
-  { name: 'Sude Yıldırım', title: 'Digital Marketing & Social Media Specialist', url: '#' },
-  { name: 'Nisa Aybala Saraçoğlu', title: 'Digital Marketing & Social Media Specialist', url: '#' },
-  { name: 'Maria Bedro', title: 'Digital Marketing & Social Media Specialist', url: '#' },
-  { name: 'Mehmet Efe Coşkuner', title: 'Digital Marketing & Social Media Specialist', url: '#' },
-  { name: 'Şefik Zelluh', title: 'Community Manager', url: '#' },
+  { name: 'Güven Sarı', title: 'Founder', url: '#', image: '/assets/Güven.png' },
+  { name: 'Sinem Tamur', title: 'Lead 2D Artist', url: '#', image: '/assets/Sinem.jpeg' },
+  { name: 'Batuhan Karakoç', title: 'Game Designer', url: '#', image: '/assets/Batuhan.jpeg' },
+  { name: 'Saadet Özdemir', title: '2D Artist', url: '#', image: '/assets/Saadet.jpeg' },
+  { name: 'Sinem Güven', title: 'Senior 2D Artist', url: '#', image: '/assets/Sinem_Guven.jpeg' },
+  { name: 'Zeynep Koroğlu', title: '2D Animator', url: '#', image: '/assets/Zeynep.jpeg' },
+  { name: 'İclal Baydur', title: '2D Artist', url: '#', image: '/assets/İclal.jpeg' },
+  { name: 'Eda ', title: '2D Animator', url: '#', image: '/assets/avatar.png' },
+  { name: 'Yaren Tangaç', title: 'Intern Game Developer', url: '#', image: '/assets/Yaren.jpeg' },
+  { name: 'Şevval Necla Er', title: 'Intern Game Developer', url: '#', image: '/assets/Şevval.jpeg' },
+  { name: 'Fehmi Kartal', title: 'Intern 3D Artist', url: '#', image: '/assets/Fehmi.jpeg' },
+  { name: 'Gizem Çayır', title: 'Intern 2D Artist', url: '#', image: '/assets/Gizem.jpeg' },
+  { name: 'Seda Nur Sayar', title: 'Intern 2D Artist', url: '#', image: '/assets/Seda.jpg' },
+  { name: 'Sude Yıldırım', title: 'Digital Marketing & Social Media Specialist', url: '#', image: '/assets/Sude.jpeg' },
+  { name: 'Nisa Aybala Saraçoğlu', title: 'Digital Marketing & Social Media Specialist', url: '#', image: '/assets/Nisa.jpeg' },
+  { name: 'Maria Bedro', title: 'Digital Marketing & Social Media Specialist', url: '#', image: '/assets/Maria.jpeg' },
+  { name: 'Mehmet Efe Coşkuner', title: 'Digital Marketing & Social Media Specialist', url: '#', image: '/assets/Efe.jpeg' },
+  { name: 'Şefik Zelluh', title: 'Community Manager', url: '#', image: '/assets/Şefik.jpeg' },
 ];
 
 export default function AboutPage() {
@@ -84,7 +84,7 @@ export default function AboutPage() {
           }}
         />
         <Image
-          src="/assets/a.jpg"
+          src="/assets/guven.jpeg"
           alt="Small collage 3"
           width={350}
           height={260}
@@ -116,7 +116,7 @@ export default function AboutPage() {
       <div className="mt-16 w-full max-w-3xl aspect-video shadow-xl rounded-xl overflow-hidden">
         <iframe
           className="w-full h-full"
-          src="https://www.youtube.com/embed/8iOu-z5L7Ac"
+          src="https://www.youtube.com/embed/p6DpxN3bW1k"
           title="PEAK Trailer: OUT NOW!"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -134,12 +134,12 @@ export default function AboutPage() {
             <ScrollAnimatedText key={i} delay={300 + (i * 50)}>
               <div className="flex flex-col items-center text-center">
                 <Image
-                  src="/assets/avatar.png"
+                  src={member.image}
                   alt={member.name}
                   title={member.name}
                   width={120}
                   height={120}
-                  className="rounded-full shadow-md"
+                   className="w-[120px] h-[120px] rounded-full object-cover shadow-md"
                 />
                 <p className="mt-3 font-semibold text-gray-800">{member.name}</p>
                 <p className="text-sm text-gray-500">{member.title}</p>

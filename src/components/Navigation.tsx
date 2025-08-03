@@ -20,8 +20,9 @@ const menuLinks = [
     },
     {
         label: 'PRESS',
-        href: '/press'
-    },
+        href: 'https://drive.google.com/drive/folders/1ii8PkiS-f7cj2pRoHX4mLGjz_Vy_PtzO?usp=sharing',
+        target: '_blank'
+      }
 ]
 
 export default function Navigation() {
@@ -86,6 +87,7 @@ export default function Navigation() {
                             href={link.href}
                             className={`${textColorClass} ${hoverColorClass} font-medium transition-colors duration-300 relative group`}
                             data-oid="nsoxuhz"
+                            target={link.target}
                         >
                             {link.label}
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full overflow-hidden">
