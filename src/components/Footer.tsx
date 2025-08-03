@@ -9,12 +9,12 @@ export default function Footer() {
                     {/* Left Side - Tagline */}
                     <div className="mb-8 md:mb-0">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-br from-black via-purple-800 to-purple-600 text-transparent bg-clip-text">
-  DARE
-  <br />
-  MIGHTY
-  <br />
-  THINGS
-</h2>
+                        DARE
+                        <br />
+                        MIGHTY
+                        <br />
+                        THINGS
+                        </h2>
 
                     </div>
 
