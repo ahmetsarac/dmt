@@ -33,22 +33,22 @@ export default function Home() {
             />
 
             {/* Company Description */}
-            <section className="py-16 bg-gray-50" data-oid="company-desc">
-                <div className="max-w-7xl mx-auto px-6" data-oid="desc-container">
-                    <div className="flex gap-12 items-center" data-oid="company-grid">
-                    <div className="flex-1 text-center" data-oid="company-title-section">
+            <section className="py-8 sm:py-12 md:py-16 bg-gray-50" data-oid="company-desc">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6" data-oid="desc-container">
+                    <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-center" data-oid="company-grid">
+                        <div className="flex-1 text-center" data-oid="company-title-section">
                             <h2 
                                 ref={titleAnimation.ref}
-                                className={`text-6xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent animate-fade-in-left ${titleAnimation.isVisible ? 'visible' : ''}`} 
+                                className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent animate-fade-in-left ${titleAnimation.isVisible ? 'visible' : ''}`} 
                                 data-oid="company-title"
                             >
                                 A game studio <br /> that dares to <br /> incredible things.
                             </h2>
                         </div>
-                        <div className=" text-right" data-oid="company-text">
+                        <div className="text-center md:text-right" data-oid="company-text">
                             <div 
                                 ref={descriptionAnimation.ref}
-                                className={`text-2xl leading-tight text-gray-800 animate-fade-in-right delay-300 ${descriptionAnimation.isVisible ? 'visible' : ''}`} 
+                                className={`text-lg sm:text-xl md:text-2xl leading-tight text-gray-800 animate-fade-in-right delay-300 ${descriptionAnimation.isVisible ? 'visible' : ''}`} 
                                 data-oid="company-desc-lines"
                             >
                                 <div className="mb-2">We put our soul into fun, dream-chasing games.</div>

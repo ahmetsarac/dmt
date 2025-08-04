@@ -144,15 +144,19 @@ export default function AboutPage() {
       </div>
 
       {/* === YouTube Video === */}
-      <div className="mt-16 w-full max-w-3xl aspect-video shadow-xl rounded-xl overflow-hidden">
-        <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/p6DpxN3bW1k"
-          title="PEAK Trailer: OUT NOW!"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+      <div className="mt-10 sm:mt-12 md:mt-16 w-full px-4 sm:px-6 md:px-0">
+        <div className="max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto shadow-xl rounded-lg sm:rounded-xl overflow-hidden">
+          <div className="relative w-full pb-[56.25%]"> {/* 16:9 aspect ratio */}
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/p6DpxN3bW1k"
+              title="PEAK Trailer: OUT NOW!"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
       </div>
 
       {/* === Team Section === */}

@@ -23,14 +23,16 @@ export default function CompoundImageLayout({
           absolute
           top-32 left-2 
           sm:top-36 sm:left-24
-          md:top-12 md:left-12
-          lg:top-12 lg:left-12
+          md:top-20 md:left-12
+          lg:top-20 lg:left-12
           xl:top-12 xl:left-4
+          2xl:top-10 2xl:left-4
           w-full h-full
-          sm:w-4/6 sm:h-4/6
+          sm:w-3/4 sm:h-3/4
           md:w-4/6 md:h-4/6
-          lg:w-4/7 lg:h-4/7
+          lg:w-4/6 lg:h-4/6
           xl:w-4/6 xl:h-4/6
+          2xl:w-4/6  2xl:h-4/6
         "
       >
         <Image
@@ -44,13 +46,24 @@ export default function CompoundImageLayout({
       </div>
 
       {/* Main Image - Responsive position and size */}
-      <div className="absolute w-[90%] bottom-[0%] right-[7%] sm:right-[0%] sm:bottom-0 md:right-[0%] md:bottom-[0%] lg:right-[0%] lg:bottom-0 xl:right-[-5%] xl:bottom-[-11%]  ">
+      <div className="
+        absolute 
+        w-full 
+        bottom-[0%] 
+        right-0
+        sm:right-[0%] sm:bottom-0 sm:w-[80%]
+        md:right-[0%] md:bottom-[0%] md:w-[100%]
+        lg:right-[0%] lg:bottom-0 lg:w-[80%]
+        xl:right-0 xl:bottom-[-11%] xl:w-[80%]
+        2xl:right-0 2xl:bottom-[-13%] 2xl:w-[80%]
+
+        ">
         <Image
           src={mainImage}
           alt="Main Image"
           width={1286}
           height={896}
-          className="object-contain drop-shadow-2xl"
+          className="object-contain drop-shadow-2xl w-full"
           priority
         />
       </div>

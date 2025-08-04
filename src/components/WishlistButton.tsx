@@ -9,8 +9,8 @@ export default function WishlistButton() {
         transform 
         -translate-x-1/2 
         -translate-y-1/2 
-        sm:bottom-60 sm:left-1/2
-        md:bottom-40 md:left-1/2
+        sm:bottom-100 sm:left-1/2
+        md:bottom-40 md:left-1/3
         lg:bottom-50 lg:left-60 
         xl:top-5/9
         xl:left-1/6
