@@ -74,35 +74,44 @@ export default function Home() {
                          Check out our games ↓
                      </h2>
                      <div className="flex justify-center">
-                         {/* Game Card */}
-                         <div 
-                             ref={gameCardAnimation.ref}
-                             className={`bg-white rounded-lg shadow-lg overflow-hidden max-w-6xl w-full animate-scale-in delay-200 ${gameCardAnimation.isVisible ? 'visible' : ''}`}
-                         >
-                             <div className="grid md:grid-cols-2 gap-0">
-                                 {/* Video Section */}
-                                 <div className="relative aspect-video bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
-                                     <div className="absolute inset-0 bg-black/20"></div>
-                                     <div className="relative z-10 text-white flex justify-center items-center">
-                                         <img src="/assets/meowstery_wisp_logo.png" alt="Meowstery Wisp" width={500} height={500} className="w-2/3 h-2/3 object-cover" />
-                                     </div>
-                                    
-                                 </div>
-                                 
-                                 {/* Game Info Section */}
-                                 <div className="p-8 flex flex-col justify-center">
-                                     <h1 className="text-5xl font-black mb-6 text-gray-900">Meowstery Wisp</h1>
-                                     <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                                     Meowstery Wisp is a 2D multiplayer social deduction game set in a whimsical Victorian-era manor where cats interact, explore, and deduce to solve a mysterious rite.
-                                     </p>
-                                     <div className="flex justify-end">
-                                         <button className="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors self-end">
-                                             Buy Now
-                                         </button>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
+              {/* Game Card */}
+<div 
+  ref={gameCardAnimation.ref}
+  className={`bg-white rounded-lg shadow-lg overflow-hidden w-full animate-scale-in delay-200 ${
+    gameCardAnimation.isVisible ? 'visible' : ''
+  }`}
+>
+  <div className="grid grid-cols-1 md:grid-cols-2">
+    {/* Video Section */}
+    <div className="relative w-full h-64 md:h-auto bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="relative z-10 text-white flex justify-center items-center w-full h-full p-6">
+        <img
+          src="/assets/meowstery_wisp_logo.png"
+          alt="Meowstery Wisp"
+          className="w-full h-full object-contain max-w-xs md:max-w-md"
+        />
+      </div>
+    </div>
+
+    {/* Game Info Section */}
+    <div className="p-6 sm:p-8 flex flex-col justify-center">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 text-gray-900">
+        Meowstery Wisp
+      </h1>
+      <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+        Meowstery Wisp is a 2D multiplayer social deduction game set in a whimsical
+        Victorian-era manor where cats interact, explore, and deduce to solve a mysterious rite.
+      </p>
+      <div className="flex justify-center md:justify-end">
+        <button className="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-800 transition-colors">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
                      </div>
                  </div>
             </section>
